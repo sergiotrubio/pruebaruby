@@ -7,7 +7,6 @@ def read_alum(file_name)
 
 # LOS PROMEDIOS DE LOS ALUMNOS
 def promedios
-    aux_arr = {}
     alum = read_alum('alumnos.csv')
     alum.each do |i|
       suma = 0
@@ -33,19 +32,18 @@ def faltas
     puts  segundo_a
 end
 
-
-# NOTA PARA APROBAR (DEBERÍA SER SI EL PROMEDIO >= 5)
+# NOTA ÀRA APROBAR
 def aprobados
-    suma = 0
     alum = read_alum('alumnos.csv')
-    alum.each do |ele|
-    suma += ele 
+    alum.each do |i|
+      suma = 0
+      i.each_with_index do |unid, index|
+       suma += unid.to_i if index != 0
+      end
+      puts "#{i[0]} Aprobó" if (suma / 5) > 5.0
+      
     end
- puts "Rocio"
- puts "Ignacio"
- puts "FAIL, NO LO LOGRÉ HACER"
 end
-
 
 
 condicion = 0
@@ -59,15 +57,15 @@ while condicion != 4
 condicion = gets.chomp.to_i
 case condicion
 
-when 1
+    when 1
     promedios
-when 2
+    when 2
     faltas
-when 3
+    when 3
     aprobados
-when 4
+    when 4
     puts "HA SALIDO DEL PROGRAMA. ADIOS"
-else
+    else
     puts "ERROR, INGRESE UNA OPCIÓN DEL 1 AL 4"
-end
+    end
 end
