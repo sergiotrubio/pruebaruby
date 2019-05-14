@@ -35,6 +35,9 @@ end
 
 
 # NOTA PARA APROBAR (DEBERÍA SER SI EL PROMEDIO >= 5)
+def aprobados
+    puts "FAIL, NO ME RESULTÓ"
+end
 
 
 
@@ -55,7 +58,7 @@ when 1
 when 2
     faltas
 when 3
-    max_stock
+    aprobados
 when 4
     puts "HA SALIDO DEL PROGRAMA. ADIOS"
 else
